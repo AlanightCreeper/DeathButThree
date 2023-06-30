@@ -14,7 +14,7 @@ public class Config {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
         builder.push("DeathButThree");
         bosses = builder.defineList("ValidBosses", Lists.newArrayList("cataclysm:ignis"), o -> o instanceof String);
-        maxDeathAmount = builder.comment("The max times of death. Default value is 3").defineInRange("maxDeathAmount", 3, 1, Integer.MAX_VALUE);
+        maxDeathAmount = builder.comment("The max times of death. Default value is 3").defineInRange("maxDeathAmount", 3, 0, Integer.MAX_VALUE);
         builder.pop();
         configSpec = builder.build();
     }
