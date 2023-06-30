@@ -46,8 +46,8 @@ public abstract class MixinServerPlayer extends Player {
                 Set<String> tags = sourceLiving.getTags();
                 String uuid = sourceLiving.getStringUUID();
                 int maxDeathAmount = Config.maxDeathAmount.get();    //maxDeathAmount，最大死亡次数，访问配置得到，默认值为3
-                if (tags.contains("death_but_" + (maxDeathAmount - 1) + uuid) || maxDeathAmount == 1) {
-                    if (maxDeathAmount != 1) {
+                if (tags.contains("death_but_" + (maxDeathAmount - 1) + uuid) || maxDeathAmount <= 1) {
+                    if (maxDeathAmount > 1) {
                         tags.remove("death_but_" + (maxDeathAmount - 1) + uuid);
                     }
                     MinecraftServer server = this.getLevel().getServer();
